@@ -1,37 +1,23 @@
 import re
 from xkeysnail.transform import *
 
-define_keymap(re.compile("Firefox|Google-chrome"), {
-    # Ctrl+Alt+j/k to switch next/previous tab
-    K("C-M-j"): K("C-TAB"),
-    K("C-M-k"): K("C-Shift-TAB"),
-}, "Firefox and Chrome")
+define_multipurpose_modmap({
+    Key.MUHENKAN: [Key.MUHENKAN, Key.RIGHT_ALT],
+    Key.HENKAN: [Key.HENKAN, Key.RIGHT_ALT]
+})
 
-define_keymap(re.compile("Zeal"), {
-    # Ctrl+s to focus search area
-    K("C-s"): K("C-k"),
-}, "Zeal")
-
-define_keymap(lambda wm_class: wm_class not in ("Emacs", "URxvt"), {
-    # Cancel
-    K("C-g"): [K("esc"), set_mark(False)],
-    # Escape
-    K("C-q"): escape_next_key,
-    # C-x YYY
-    K("C-x"): {
-        # C-x h (select all)
-        K("h"): [K("C-home"), K("C-a"), set_mark(True)],
-        # C-x C-f (open)
-        K("C-f"): K("C-o"),
-        # C-x C-s (save)
-        K("C-s"): K("C-s"),
-        # C-x k (kill tab)
-        K("k"): K("C-f4"),
-        # C-x C-c (exit)
-        K("C-c"): K("M-f4"),
-        # cancel
-        K("C-g"): pass_through_key,
-        # C-x u (undo)
-        K("u"): [K("C-z"), set_mark(False)],
-    }
-}, "Emacs-like keys")
+define_keymap(None, {
+    K("RAlt-h"): K("LEFT"),
+    K("RAlt-j"): K("DOWN"),
+    K("RAlt-k"): K("UP"),
+    K("RAlt-l"): K("RIGHT"),
+    K("RAlt-q"): K("C-PAGE_UP"),
+    K("RAlt-w"): K("C-PAGE_DOWN"),
+    K("RAlt-y"): K("BACKSPACE"),
+    K("RAlt-o"): K("DELETE"),
+    K("RAlt-n"): K("M-LEFT"),
+    K("RAlt-DOT"): K("M-RIGHT"),
+    K("RAlt-SPACE"): K("ENTER"),
+    K("RAlt-HENKAN"): K("ESC"),
+    K("RAlt-MUHENKAN"): K("ESC"),
+}, "All")

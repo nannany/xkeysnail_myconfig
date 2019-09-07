@@ -20,7 +20,9 @@ define_keymap(None, {
     K("RAlt-o"): K("DELETE"),
     # ページ戻る、次へ
     K("RAlt-n"): K("M-LEFT"),
+    K("C-RAlt-n"): K("C-M-LEFT"),
     K("RAlt-DOT"): K("M-RIGHT"),
+    K("C-RAlt-DOT"): K("C-M-RIGHT"),
     # その他よく使う系
     K("RAlt-a"): K("C-a"),
     K("RAlt-c"): K("C-INSERT"),
